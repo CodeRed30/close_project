@@ -54,11 +54,9 @@ def phone_uploader(name, csv_phones):
 
 def trigger_upload():
     print('Data prepped and ready to upload')
-
     try:
         for lead in clean_data:
-            resp = api.post('lead', data=lead)
-            return resp
+            api.post('lead', data=lead)
     except Exception as e: 
         print(f'{lead["name"]} did not upload to close, please review the data and try again')
         print(f'Error: {e}')
